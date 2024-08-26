@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Role List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/styleHome.css}">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{fragment/nav_footer :: navbar}"></div>
+
+<div class="container mt-5">
+    <h2>Role List</h2>
+    <a href="/roles/new" class="btn btn-primary mb-3">Add New Role</a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Role Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="role : ${roles}">
+            <td th:text="${role.id}"></td>
+            <td th:text="${role.roleName}"></td>
+            <td>
+                <a th:href="@{/roles/edit/{id}(id=${role.id})}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/roles/delete/{id}(id=${role.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- Footer -->
+<div th:replace="~{fragment/nav_footer :: footer}"></div>
+
+</body>
+</html>

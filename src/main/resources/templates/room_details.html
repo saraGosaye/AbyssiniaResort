@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Room Details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/styleHome.css}">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{fragment/nav_footer :: navbar}"></div>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Room Details</h1>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title" th:text="${room.roomType}"></h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text"><strong>Price:</strong> <span th:text="${room.roomPrice}"></span></p>
+            <p class="card-text"><strong>Photo:</strong></p>
+            <img th:src="@{'/photo/' + ${room.photo}}" alt="Room Photo"  width="300"
+                 class="img-fluid">
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-secondary" th:href="@{/rooms}">Back to List</a>
+            <a class="btn btn-warning" th:href="@{/edit/{id}(id=${room.id})}">Edit Room</a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{fragment/nav_footer :: footer}"></div>
+
+<!-- Bootstrap scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abyssinia Hotel</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/styleHome.css}">
+
+</head>
+<body>
+<!-- Header -->
+<!--<div th:replace="~{fragment/nav_footer :: navbar}"></div>-->
+<div th:replace="~{fragment/nav_footer :: navbar}"></div>
+
+<!-- Booking Section -->
+<section class="container booking-form bookNow">
+    <h2 class="text-center mb-4">Book Your Adventure</h2>
+    <form th:action="@{/bookings/new}" th:object="${booking}" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="guestFullName">Full Name:</label>
+                <input type="text" id="guestFullName" name="guestFullName"
+                       class="form-control" required>
+            </div>
+
+            <div class="form-group col-md-5">
+                <label for="guestEmail">Email:</label>
+                <input type="email"  id="guestEmail" name="guestEmail"
+                       class="form-control" required>
+            </div>
+
+            <div class="form-group col-md-5">
+                <label for="checkin">Check-In Date:</label>
+                <input type="date" id="checkin" name="checkin" class="form-control" required>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="checkout">Check-Out Date:</label>
+                <input type="date" id="checkout" name="checkout" class="form-control" required>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="roomType">Room Type:</label>
+                <select id="roomType" name="roomType" class="form-control">
+                    <option value="" disabled selected>Select Room Type</option>
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                    <option value="Ocean View">Ocean View</option>
+                    <option value="Pool Side">Pool Side</option>
+                    <option value="Beach Suite">Beach Suite</option>
+                    <option value="Presidential Suite">Presidential Suite</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="numAdults">Number of Adults:</label>
+                <input type="number" id="numAdults" name="numAdults" class="form-control" min="1" required>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="numChildren">Number of Children:</label>
+                <input type="number" id="numChildren" name="numChildren" class="form-control" min="0" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Book Now</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<div th:replace="~{fragment/nav_footer :: footer}"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#bookingForm").on("submit", function(event) {
+            if ($("#numOfAdults").val() <= 0) {
+                alert("Please enter at least one adult.");
+                event.preventDefault();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

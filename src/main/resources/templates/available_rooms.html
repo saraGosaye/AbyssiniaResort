@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Available Rooms</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styleHome.css}">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{fragment/nav_footer :: navbar}"></div>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Available Rooms</h1>
+    <form th:action="@{/available}" method="get" class="needs-validation" novalidate>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="checkInDate">Check-in Date</label>
+                <input type="date" id="checkInDate" name="checkInDate" class="form-control" required>
+                <div class="invalid-feedback">Please select a check-in date.</div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="checkOutDate">Check-out Date</label>
+                <input type="date" id="checkOutDate" name="checkOutDate" class="form-control" required>
+                <div class="invalid-feedback">Please select a check-out date.</div>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="roomType">Room Type</label>
+                <select id="roomType" name="roomType" class="form-control">
+                    <option value="">All Types</option>
+                    <option th:each="type : ${roomTypes}" th:value="${type}" th:text="${type}"></option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <div class="mt-4">
+        <h3>Results:</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Room Type</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="room : ${availableRooms}">
+                <td th:text="${room.roomType}"></td>
+                <td th:text="${room.roomPrice}"></td>
+                <td><img th:src="@{'/images/' + ${room.photoName}}" alt="Room Photo" width="100"></td>
+                <td>
+                    <a class="btn btn-info btn-sm" th:href="@{/rooms/{id}(id=${room.id})}">View</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/home">Back to Home</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{fragment/nav_footer :: footer}"></div>
+
+<!-- Bootstrap and jQuery scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Bootstrap form validation
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+</body>
+</html>

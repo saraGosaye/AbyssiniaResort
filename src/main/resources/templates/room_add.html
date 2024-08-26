@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Room</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styleHome.css}">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{fragment/nav_footer :: navbar}"></div>
+
+<div class="container mt-5 col-md-5">
+    <h1 class="mb-4">Add New Room</h1>
+
+    <!-- Display success message -->
+    <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
+
+    <!-- Display failure message -->
+    <div th:if="${failureMessage}" class="alert alert-danger" th:text="${failureMessage}"></div>
+
+    <form th:action="@{/add_room}" method="post" enctype="multipart/form-data"
+          class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="roomType">Room Type</label>
+            <input type="text" id="roomType" name="roomType" class="form-control" required>
+            <div class="invalid-feedback">Please enter the room type.</div>
+        </div>
+        <div class="form-group">
+            <label for="roomPrice">Room Price</label>
+            <input type="text" id="roomPrice" name="roomPrice" class="form-control" required>
+            <div class="invalid-feedback">Please enter the room price.</div>
+        </div>
+        <div class="form-group">
+            <label for="photo">Room Photo</label>
+            <input type="file" id="photo" name="photo"
+                   class="form-control-file" style="border: 1px solid #ced4da;" onchange="previewImage(event)" required>
+            <img id="imagePreview" src="#" alt="Preview Room Photo" style="display:none; max-width: 400px; max-height: 400px;" class="mb-3"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Room</button>
+        <a href="#" class="btn btn-secondary" th:href="@{/rooms}">Cancel</a>
+    </form>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{fragment/nav_footer :: footer}"></div>
+
+<!-- jQuery and Bootstrap scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Bootstrap form validation
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+</body>
+</html>
