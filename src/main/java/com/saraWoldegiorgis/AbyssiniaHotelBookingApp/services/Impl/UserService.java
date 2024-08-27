@@ -1,32 +1,25 @@
 package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.Impl;
 
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.config.UserPrincipal;
-import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.dto.UserRegistrationDto;
+import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.dto.UserDTO;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.User;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Role;
-import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories.RoleRepository;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories.UserRepository;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IUserService;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -38,6 +31,7 @@ import java.util.stream.Collectors;
 @Slf4j
 //@RequiredArgsConstructor
 public class UserService implements IUserService {
+
     @Autowired
     private UserRepository userRepository;
 
@@ -86,8 +80,9 @@ public class UserService implements IUserService {
     {
         return userRepository.findByEmail(email);
     }
-//    public User findUserByName(String name)
-//    {
-//        return userRepository.findByName(name);
-//    }
+
+    public User findUserByName(String name)
+    {
+        return userRepository.findUserByUserName(name);
+    }
 }

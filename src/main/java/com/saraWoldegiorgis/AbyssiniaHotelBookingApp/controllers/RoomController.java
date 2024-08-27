@@ -25,7 +25,7 @@ public class RoomController {
     @RequestMapping("/")
     public String home() {
         System.out.println("===========>IN displayHomePage() ");
-        return "home_page";
+        return "home";
 }
 
     // Display the form to add a new room

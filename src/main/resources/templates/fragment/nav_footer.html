@@ -1,5 +1,5 @@
 <!-- Navigation bar -->
-<div th:fragment="navbar">
+<div th:fragment="navbar" xmlns:sec="http://www.w3.org/1999/xhtml">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" th:href="@{/home}">Abyssinia Resort</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,15 +57,12 @@
                     </ul>
                 </li>
 
-               <!-- Account Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Account
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="accountDropdown">
-                        <li><a class="dropdown-item" th:href="@{/login}">Login</a></li>
-                        <li><a class="dropdown-item" th:href="@{/register}">Register</a></li>
-                    </ul>
+               <!-- Logout Button -->
+                <li class="nav-item ml-2 mt-2" sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post" style="display: inline;">
+                        <input class="nav-link btn btn-link" type="submit" value="Logout"
+                               style="padding: 0; color: white; background: none;  border: none;"/>
+                    </form>
                 </li>
             </ul>
         </div>

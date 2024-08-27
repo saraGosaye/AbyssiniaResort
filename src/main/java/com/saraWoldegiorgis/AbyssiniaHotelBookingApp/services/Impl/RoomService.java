@@ -1,7 +1,5 @@
 package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.Impl;
 
-
-import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.exceptions.InternalServerException;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Room;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories.RoomRepository;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IRoomService;
@@ -70,14 +68,18 @@ public class RoomService implements IRoomService {
 
     @Override
     public Room updateRoom(Long roomId, String roomType, BigDecimal roomPrice, byte[] photoBytes) {
-        Room room = roomRepository.findById(roomId).get();
+        Room room = roomRepository.findById(roomId).orElse(null);
+        if (room == null) {
+            // Handle case where room is not found
+            throw new IllegalArgumentException("Room not found with ID: " + roomId);
+        }
         if (roomType != null) room.setRoomType(roomType);
         if (roomPrice != null) room.setRoomPrice(roomPrice);
         if (photoBytes != null && photoBytes.length > 0) {
             try {
                 room.setPhoto(new SerialBlob(photoBytes));
             } catch (SQLException ex) {
-                throw new InternalServerException("Fail updating room");
+                throw new RuntimeException("Failed to update room photo", ex);
             }
         }
         return roomRepository.save(room);

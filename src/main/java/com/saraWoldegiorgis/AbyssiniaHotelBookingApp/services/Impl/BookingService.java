@@ -1,6 +1,5 @@
 package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.Impl;
 
-import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.exceptions.ResourceNotFoundException;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Booking;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories.BookingRepository;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IBookingService;
@@ -65,8 +64,7 @@ public class BookingService implements IBookingService {
     @Override
     public Booking findByBookingConfirmationCode(String bookingConfirmationCode) {
         return bookingRepository.findByBookingConfirmationCode(bookingConfirmationCode)
-                .orElseThrow(() -> new ResourceNotFoundException("No booking found with booking " +
-                        "code :"+bookingConfirmationCode));
+                .orElse(null);
 
     }
 }

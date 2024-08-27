@@ -1,6 +1,6 @@
 package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.controllers;
 
-import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.dto.UserRegistrationDto;
+import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.dto.UserDTO;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.Impl.UserService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -22,13 +22,13 @@ public class UserController {
         dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
     }
 
-
     private UserService userDetailsService;
 
     @Autowired
-    public void UserController(UserService userDetailsService) {
+    public UserController(UserService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
+
     @GetMapping("/")
     private String redirectToLogin()
     {
@@ -39,21 +39,24 @@ public class UserController {
     @GetMapping("/sign-up")
     public String signUp(Model model)
     {
-        model.addAttribute("userDto", new UserRegistrationDto());
+        model.addAttribute("userDto", new UserDTO());
         return "sign-up";
     }
 
     @PostMapping("/signup-process")
-    public String signupProcess(@Valid @ModelAttribute ("userDto") UserRegistrationDto userDTO,
+    public String signupProcess(@Valid @ModelAttribute ("userDto") UserDTO userDTO,
                                 BindingResult bindingResult)
     {
+        System.out.println("===========>IN registerUserAccount() ");
+
         if(bindingResult.hasErrors())
         {
-            log.warn("Wrong attempt");
+            log.warn("Registration attempt failed due to validation errors.");
             return "sign-up";
         }
+
         userDetailsService.creat(userDTO);
-        return "confirmation";
+        return "redirect:/login?success";
     }
     /**
      * In order to make code more readable  it is good practice to

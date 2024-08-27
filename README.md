@@ -9,8 +9,6 @@ Welcome to the Hotel Booking App! This application provides a seamless and user-
 - Book a hotel room
 - View, update, and cancel bookings
 - Admin panel to manage bookings
-- Session management with Spring Security
-- Exception handling and custom queries
 
 ## Technologies Used
 - Spring Boot
@@ -18,8 +16,7 @@ Welcome to the Hotel Booking App! This application provides a seamless and user-
 - Thymeleaf
 - MySQL Database
 - Spring Security
-- Hibernate Validator
-- CSS, JavaScript
+- CSS, JavaScript, Bootstrap
 
 ## Running the Application
 1. Clone the repository

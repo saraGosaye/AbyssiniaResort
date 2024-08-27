@@ -3,6 +3,7 @@ package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.controllers;
 
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Role;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IRoleService;
+import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.Impl.RoleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,11 +18,16 @@ import java.util.Optional;
 @Controller
 @RequiredArgsConstructor
 public class RoleController {
-    private final IRoleService roleService;
+
+    private IRoleService roleService;
+
+    public RoleController(RoleService roleService) {
+        this.roleService = roleService;
+    }
 
     @GetMapping("/roles")
     public String listRoles(Model model) {
-        List<Role> roles = roleService.findAllRoles();
+        List<Role> roles = roleService.getAllRoles();
         model.addAttribute("roles", roles);
         return "roles";
     }

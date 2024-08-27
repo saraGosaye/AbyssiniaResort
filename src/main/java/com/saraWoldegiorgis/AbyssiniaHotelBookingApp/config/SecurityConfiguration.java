@@ -39,7 +39,8 @@ public class SecurityConfiguration {
                         (auth) -> auth
                                 .requestMatchers("/", "/login*",
                                         "/css/*", "/js/*", "/sign-up", "/signup-process").permitAll()
-                                .requestMatchers("/home").hasAnyRole("USER", "ADMIN")
+                                .requestMatchers("/home").authenticated()
+//                                .requestMatchers("/home").hasAnyRole("USER", "ADMIN")
                                 .anyRequest().authenticated()
                 )
 

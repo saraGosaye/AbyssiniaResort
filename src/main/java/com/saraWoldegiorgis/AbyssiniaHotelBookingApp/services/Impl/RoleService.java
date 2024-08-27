@@ -1,12 +1,10 @@
 package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.Impl;
 
-import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.exceptions.RoleAlreadyExistException;
+
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Role;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories.RoleRepository;
-import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories.UserRepository;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IRoleService;
 import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +12,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class RoleService implements IRoleService {
 
-    private final RoleRepository roleRepository;
+    private RoleRepository roleRepository;
 
     @Autowired
     public RoleService(RoleRepository roleRepository) {
@@ -32,8 +29,8 @@ public class RoleService implements IRoleService {
 
     @Override
     @Transactional
-    public Role findRoleByRoleName(String name) {
-        return roleRepository.findRoleByName(name);
+    public Role findRoleByRoleName(String roleName) {
+        return roleRepository.findByRoleName(roleName);
     }
 
     @Override
@@ -47,8 +44,14 @@ public class RoleService implements IRoleService {
     }
 
     @Override
+    public Optional<Role> findRoleById(Long id) {
+        return roleRepository.findById(id);
+    }
+
+
+    @Override
     public void deleteRoleById(Long id) {
-        roleRepository.deleteById(id);
+        roleRepository.deleteRoleById(id);
     }
 
 }
