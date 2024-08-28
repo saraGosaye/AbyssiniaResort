@@ -38,20 +38,23 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(
                         (auth) -> auth
                                 .requestMatchers("/", "/login*",
-                                        "/css/*", "/js/*", "/sign-up", "/signup-process").permitAll()
-                                .requestMatchers("/home").authenticated()
+                                        "/css/*", "/img/**", "/js/*", "/sign-up", "/signup" +
+                                                "-process").permitAll() //Specifies which URLs are accessible without authentication
+                                .requestMatchers("/home").authenticated() // Specifies which URLs
+                                // require authentication
 //                                .requestMatchers("/home").hasAnyRole("USER", "ADMIN")
                                 .anyRequest().authenticated()
                 )
 
                 .formLogin(form -> form
-                        .loginPage("/login")
-                        .loginProcessingUrl("/login") // should point to login page
-                        .successForwardUrl("/home") // must be in order thymeleaf security extras work
+                        .loginPage("/login") // Sets a custom login page (/login)
+                        .loginProcessingUrl("/login") // Specifies where the login form should be submitted (/login).
+//                        .successForwardUrl("/home")
+                        .defaultSuccessUrl("/home", true)// Redirects to /home on successful login.
                         .permitAll()
                 )
                 .logout(
-                        logout -> logout
+                        logout -> logout //  Configures the logout process to invalidate the session and clear authentication.
                                 .invalidateHttpSession(true)
                                 .clearAuthentication(true)
                                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

@@ -12,29 +12,27 @@
 
 <div class="container mt-5">
     <h1 class="mb-4">All Rooms</h1>
-    <a class="btn btn-primary mb-3"
+    <a class="btn btn-success mb-3"
        th:href="@{/add_room}">Add New Room</a>
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Room Type</th>
-            <th>Price</th>
-            <th>Photo</th>
+            <th>Room Price</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="room : ${rooms}">
+            <td th:text="${room.id}"></td>
             <td th:text="${room.roomType}"></td>
             <td th:text="${room.roomPrice}"></td>
-            <td><img th:src="@{'/images/' + ${room.photo}}" alt="Room Photo" width="100"></td>
             <td>
-<!--                <a class="btn btn-info btn-sm" th:href="@{'/' + ${room.id}}">View-->
-<!--                    Details</a>-->
-                <a class="btn btn-info btn-sm" th:href="@{'/room/${room.id}'}">View
+                <a class="btn btn-info btn-sm" th:href="@{'/details/' + ${room.id}}">View
                     Details</a>
                 <a class="btn btn-warning btn-sm" th:href="@{'/edit/' + ${room.id}}">Edit</a>
-                <a class="btn btn-danger btn-sm delete-room" th:href="@{'/delete/' + ${room.id}}">Delete</a>
+                <a class="btn btn-danger btn-sm" th:href="@{'/delete/' + ${room.id}}">Delete</a>
             </td>
         </tr>
         </tbody>
@@ -49,6 +47,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <script>
+
     $(document).ready(function(){
         $('.delete-room').on('click', function(e){
             e.preventDefault();

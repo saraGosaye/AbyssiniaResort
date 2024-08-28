@@ -2,7 +2,11 @@ package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.controllers;
 
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Room;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IRoomService;
-import lombok.RequiredArgsConstructor;
+import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.Impl.RoomService;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,23 +14,27 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Blob;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequiredArgsConstructor
 public class RoomController {
 
     private final IRoomService roomService;
 
+    public RoomController(IRoomService roomService) {
+        this.roomService = roomService;
+    }
+
     // Display the home page
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String home() {
         System.out.println("===========>IN displayHomePage() ");
         return "home";
-}
+    }
 
     // Display the form to add a new room
     @GetMapping("/add_room")
@@ -72,16 +80,17 @@ public class RoomController {
     }
 
     // Show room details
-    @GetMapping("/room/{id}")
+    @GetMapping("/details/{id}")
     public String findRoomById(@PathVariable Long id, Model model) {
         Optional<Room> room = roomService.findRoomById(id);
         if (room.isPresent()) {
-            model.addAttribute("room", room);
+            model.addAttribute("room", room.get());
             return "room_details";
         } else {
             return "redirect:/rooms";
         }
     }
+
     // Show form to update a room
     @GetMapping("/edit/{id}")
     public String showUpdateRoomForm(@PathVariable Long id, Model model) {
@@ -129,4 +138,35 @@ public class RoomController {
         model.addAttribute("availableRooms", availableRooms);
         return "available_rooms";
     }
+
+
+@GetMapping("/image/{id}")
+public ResponseEntity<byte[]> getImage(@PathVariable("id") Long id) {
+    try {
+        // Retrieve the image Blob from the database using the provided ID
+        Blob blob = roomService.getImageBlobById(id);
+
+        // Check if the Blob is null
+        if (blob == null) {
+            // Return a 404 Not Found response if the image does not exist
+            return ResponseEntity.notFound().build();
+        }
+
+        // Convert the Blob to a byte array
+        byte[] imageData = blob.getBytes(1, (int) blob.length());
+
+        // Create headers for the response
+        HttpHeaders headers = new HttpHeaders();
+
+        // Set the content type of the response to JPEG
+        headers.setContentType(MediaType.IMAGE_JPEG);
+
+        // Return the image data along with the headers and a 200 OK status
+        return new ResponseEntity<>(imageData, headers, HttpStatus.OK);
+    } catch (SQLException e) {
+        // Log the exception
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+}
+
 }

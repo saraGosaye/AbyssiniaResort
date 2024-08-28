@@ -50,7 +50,8 @@
                 <td th:text="${room.roomPrice}"></td>
                 <td><img th:src="@{'/images/' + ${room.photoName}}" alt="Room Photo" width="100"></td>
                 <td>
-                    <a class="btn btn-info btn-sm" th:href="@{/rooms/{id}(id=${room.id})}">View</a>
+                    <a class="btn btn-info btn-sm" th:href="@{/rooms/{id}(id=${room.id})}">Book
+                        Now</a>
                 </td>
             </tr>
             </tbody>

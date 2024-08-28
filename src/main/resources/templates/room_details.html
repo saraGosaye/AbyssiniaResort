@@ -11,20 +11,23 @@
 <div th:replace="~{fragment/nav_footer :: navbar}"></div>
 
 <div class="container mt-5">
-    <h1 class="mb-4">Room Details</h1>
-    <div class="card">
-        <div class="card-header">
-            <h5 class="card-title" th:text="${room.roomType}"></h5>
-        </div>
+    <h2 class="ml-3">Room Details</h2>
+    <div>
         <div class="card-body">
-            <p class="card-text"><strong>Price:</strong> <span th:text="${room.roomPrice}"></span></p>
-            <p class="card-text"><strong>Photo:</strong></p>
-            <img th:src="@{'/photo/' + ${room.photo}}" alt="Room Photo"  width="300"
-                 class="img-fluid">
+            <p class="card-text">
+                <img th:src="@{/image/{id}(id=${room.id})}" alt="Room Photo" width="500"
+                     class="img-fluid" />
+            </p>
+            <p class="card-text"><strong>Room Type: </strong> <span
+                    th:text="${room.roomType}"></span> Bed Room</p>
+            <p class="card-text"><strong>Price: </strong> $<span
+                    th:text="${room.roomPrice}"></span> / night</p>
+
         </div>
-        <div class="card-footer">
-            <a href="#" class="btn btn-secondary" th:href="@{/rooms}">Back to List</a>
+        <div >
+            <a href="#" class="btn btn-info" th:href="@{/bookings/new}">Book Now</a>
             <a class="btn btn-warning" th:href="@{/edit/{id}(id=${room.id})}">Edit Room</a>
+            <a href="#" class="btn btn-secondary" th:href="@{/rooms}">Go Back</a>
         </div>
     </div>
 </div>
@@ -35,5 +38,6 @@
 <!-- Bootstrap scripts -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

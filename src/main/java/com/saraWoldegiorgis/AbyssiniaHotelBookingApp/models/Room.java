@@ -41,7 +41,8 @@ public class Room {
     @Column(name = "Photo", nullable = false)
     private Blob photo;
 
-    @OneToMany(mappedBy="room", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy="room", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval =
+            true)
     private List<Booking> bookings;
 
     public void addBooking(Booking booking){
