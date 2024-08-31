@@ -17,8 +17,6 @@
                     <ul class="dropdown-menu" aria-labelledby="roomManagementDropdown">
                         <li><a class="dropdown-item" th:href="@{/rooms}">All Rooms</a></li>
                         <li><a class="dropdown-item" th:href="@{/add_room}">Add New Room</a></li>
-                        <li><a class="dropdown-item" th:href="@{/available}">Check Room
-                            Availability</a></li>
                     </ul>
                 </li>
 
@@ -30,7 +28,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="bookingManagementDropdown">
                         <li><a class="dropdown-item" th:href="@{/bookings/new}">Book Now</a></li>
-                        <li><a class="dropdown-item" th:href="@{/bookings/all}">Find My
+                        <li><a class="dropdown-item" th:href="@{/bookings/my_booking}">Find My
                             Booking</a></li>
                     </ul>
                 </li>
@@ -41,8 +39,8 @@
                         Role
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="roleManagementDropdown">
-                        <li><a class="dropdown-item" th:href="@{/roles/add}">Add Role</a></li>
-                        <li><a class="dropdown-item" th:href="@{/roles/manage}">Manage Roles</a></li>
+                        <li><a class="dropdown-item" th:href="@{/roles/new}">Add Role</a></li>
+                        <li><a class="dropdown-item" th:href="@{/roles}">Manage Roles</a></li>
                     </ul>
                 </li>
 

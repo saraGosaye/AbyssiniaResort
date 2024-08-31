@@ -16,6 +16,8 @@ public interface IRoomService {
 
     Room saveRoom(Room room);
 
+    Room findRoomByType(String roomType);
+
     List<String> findAllRoomTypes();
 
     List<Room> findAllRooms();

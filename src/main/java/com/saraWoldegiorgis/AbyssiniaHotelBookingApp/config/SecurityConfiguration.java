@@ -51,6 +51,7 @@ public class SecurityConfiguration {
                         .loginProcessingUrl("/login") // Specifies where the login form should be submitted (/login).
 //                        .successForwardUrl("/home")
                         .defaultSuccessUrl("/home", true)// Redirects to /home on successful login.
+                                .failureUrl("/login?error=true")
                         .permitAll()
                 )
                 .logout(

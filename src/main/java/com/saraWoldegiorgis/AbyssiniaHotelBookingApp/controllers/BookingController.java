@@ -1,21 +1,20 @@
 package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.controllers;
 
+import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.dto.BookingForm;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Booking;
+import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Room;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IBookingService;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IRoomService;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IUserService;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Controller
-@RequiredArgsConstructor
 @RequestMapping("/bookings")
 public class BookingController {
 
@@ -23,67 +22,98 @@ public class BookingController {
     private final IRoomService roomService;
     private final IUserService userService;
 
-    // Display the booking form
+    public BookingController(IBookingService bookingService, IRoomService roomService, IUserService userService) {
+        this.bookingService = bookingService;
+        this.roomService = roomService;
+        this.userService = userService;
+    }
+
+    @ModelAttribute("bookingForm")
+    public BookingForm bookingForm() {
+        System.out.println("IN  BookingController->BookingForm()");
+        return new BookingForm();
+    }
+
     @GetMapping("/new")
     public String showBookingForm(Model model) {
-        model.addAttribute("booking", new Booking());
-        model.addAttribute("rooms", roomService.findAllRooms());
+
+        // Fetch the list of rooms from the service
+        List<Room> rooms = roomService.findAllRooms();
+
+        // Add the list of rooms to the model
+        model.addAttribute("rooms", rooms);
+
+        // Add an empty BookingForm to the model
+        model.addAttribute("bookingForm", new BookingForm());
+        System.out.println("===========>IN displayBookingForm ");
         return "booking_form";
     }
 
-    // Process the booking form submission
     @PostMapping("/new")
-    public String processBooking( @ModelAttribute Booking booking, BindingResult result, Model model) {
+    public String addNewBooking(@Valid @ModelAttribute("bookingForm") BookingForm bookingForm, BindingResult result, Model
+    model) {
+     System.out.println("===========>IN addingNewBooking() ");
         if (result.hasErrors()) {
+            // Return to the form with validation errors
+            System.out.println("Has Errors: " + result.hasErrors());
             return "booking_form";
         }
+
+        if (!bookingForm.isValidDateRange()) {
+            model.addAttribute("errorMessage", "Check-out date must be after check-in date.");
+            return "booking_form";
+        }
+
         try {
-            booking.calculateTotalNumberOfGuest();
-            bookingService.saveBooking(booking);
-            model.addAttribute("message", "Booking successful! Your confirmation code is " + booking.getBookingConfirmationCode());
-            return "booking_confirmation";
-        } catch (Exception e) {
-            model.addAttribute("error", "An error occurred during booking. Please try again.");
+            Room room = roomService.findRoomByType(bookingForm.getRoomType());
+
+            if (room == null) {
+                throw new IllegalArgumentException("Room type not found.");
+            }
+            Booking booking = bookingService.addNewBooking(
+                    bookingForm.getGuestFullName(),
+                    bookingForm.getGuestEmail(),
+                    bookingForm.getCheckInDate(),
+                    bookingForm.getCheckOutDate(),
+                    room,
+                    bookingForm.getNumOfAdults(),
+                    bookingForm.getNumOfChildren()
+            );
+            model.addAttribute("booking", booking);
+            return "booking_details";
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("errorMessage", e.getMessage());
             return "booking_form";
         }
     }
 
-
-    // Display a list of all bookings for a user
-    @GetMapping("/all")
-    public String listUserBookings(@RequestParam String email, Model model) {
-        model.addAttribute("bookings", bookingService.findBookingsByUserEmail(email));
-        return "my_booking";
-    }
-
-    // Cancel a specific booking
     @GetMapping("/cancel/{id}")
     public String cancelBooking(@PathVariable Long id, Model model) {
         bookingService.deleteBookingById(id);
-        model.addAttribute("message", "Booking canceled successfully!");
-        return "redirect:/bookings?email=" + model.getAttribute("email");
+        model.addAttribute("successMessage", "Booking has been successfully canceled.");
+        return "redirect:/home";
     }
 
-//    @PostMapping("/new")
-//    public String submitBooking(
-//            @RequestParam("checkInDate") LocalDate checkInDate,
-//            @RequestParam("checkOutDate") LocalDate checkOutDate,
-//            @RequestParam("roomType") String roomType,
-//            @RequestParam("numOfAdults") int numOfAdults,
-//            @RequestParam("numOfChildren") int numOfChildren,
-//            Model model) {
-//
-//        // Save the booking using the bookingService layer
-////        Booking savedBooking= bookingService.addNewBooking(checkInDate,
-////                checkOutDate, roomType, numOfAdults, numOfChildren);
-//
-//        // Add booked room to the model
-////        model.addAttribute("booking", savedBooking);
+    // Display the form to find bookings by email
+    @GetMapping("/my_booking")
+    public String showFindMyBookingForm(Model model) {
+        model.addAttribute("email", new String()); // To bind the form data
+        return "my_booking";
+    }
 
-          // If successful, add a success message
-//          System.out.println("Booking added successfully!");
-//          model.addAttribute("successMessage", "Booking added successfully!");
-//          return "redirect:/bookings";
-//
-//    }
+    // Process the form submission to find bookings by email
+    @PostMapping("/my_booking")
+    public String findBookingByEmail(@RequestParam("guestEmail") String guestEmail, Model model) {
+
+        List<Booking> bookingList = bookingService.findBookingsByUserEmail(guestEmail);
+
+        // Add the booking details to the model
+        if (bookingList.isEmpty()) {
+            model.addAttribute("message", "No bookings found for this email.");
+        } else {
+            model.addAttribute("booking", bookingList);
+        }
+        return "booking_details";
+    }
+
 }

@@ -13,7 +13,7 @@
 
 <div class="container mt-5">
     <h2>Role List</h2>
-    <a href="/roles/new" class="btn btn-primary mb-3">Add New Role</a>
+    <a class="btn btn-primary mb-3" th:href="@{/roles/new}" >Add New Role</a>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -27,8 +27,9 @@
             <td th:text="${role.id}"></td>
             <td th:text="${role.roleName}"></td>
             <td>
-                <a th:href="@{/roles/edit/{id}(id=${role.id})}" class="btn btn-warning">Edit</a>
-                <a th:href="@{/roles/delete/{id}(id=${role.id})}" class="btn btn-danger">Delete</a>
+                <a th:href="@{'/roles/edit/' + ${role.id}}" class="btn btn-warning">Edit</a>
+                <a th:href="@{'/roles/delete/' + ${role.id}}" class="btn btn-danger">
+                    Delete</a>
             </td>
         </tr>
         </tbody>

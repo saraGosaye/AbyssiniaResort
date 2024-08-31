@@ -2,7 +2,6 @@ package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.controllers;
 
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Room;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IRoomService;
-import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.Impl.RoomService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,7 +15,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Blob;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -126,22 +124,9 @@ public class RoomController {
         model.addAttribute("message", "room canceled successfully!");
         return "redirect:/rooms";
     }
-    // Find available rooms by check-in and check-out dates and room type
-    @GetMapping("/available")
-    public String findAvailableRooms(@RequestParam("checkInDate") String checkInDateStr,
-                                     @RequestParam("checkOutDate") String checkOutDateStr,
-                                     @RequestParam("roomType") String roomType,
-                                     Model model) {
-        LocalDate checkInDate = LocalDate.parse(checkInDateStr);
-        LocalDate checkOutDate = LocalDate.parse(checkOutDateStr);
-        List<Room> availableRooms = roomService.findAvailableRooms(checkInDate, checkOutDate, roomType);
-        model.addAttribute("availableRooms", availableRooms);
-        return "available_rooms";
-    }
 
-
-@GetMapping("/image/{id}")
-public ResponseEntity<byte[]> getImage(@PathVariable("id") Long id) {
+    @GetMapping("/image/{id}")
+    public ResponseEntity<byte[]> getImage(@PathVariable("id") Long id) {
     try {
         // Retrieve the image Blob from the database using the provided ID
         Blob blob = roomService.getImageBlobById(id);
@@ -166,7 +151,12 @@ public ResponseEntity<byte[]> getImage(@PathVariable("id") Long id) {
     } catch (SQLException e) {
         // Log the exception
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 }
 
-}
+
+
+
+
+

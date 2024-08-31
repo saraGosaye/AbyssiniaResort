@@ -15,16 +15,16 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookingId;
 
-    @Column(name = "check_In", nullable = false)
+    @Column(name = "check_in", nullable = false)
     private LocalDate checkInDate;
 
-    @Column(name = "check_Out", nullable = false)
+    @Column(name = "check_out", nullable = false)
     private LocalDate checkOutDate;
 
-    @Column(name = "guest_FullName")
+    @Column(name = "guest_full_name")
     private String guestFullName;
 
-    @Column(name = "guest_Email")
+    @Column(name = "guest_email")
     private String guestEmail;
 
     @Column(name = "adults", nullable = false)
@@ -33,26 +33,19 @@ public class Booking {
     @Column(name = "children")
     private int numOfChildren;
 
-    @Column(name = "total_Guest")
+    @Column(name = "total_guest")
     private int totalNumOfGuest;
 
-    @Column(name = "confirmation_Code")
-    private String bookingConfirmationCode;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "room_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "room_id", nullable = false, referencedColumnName = "id")
     private Room room;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    public Booking(LocalDate checkin, LocalDate checkout, String roomType) {
-    }
-
-
     public void calculateTotalNumberOfGuest(){
-        this.totalNumOfGuest = this.numOfAdults + numOfChildren;
+        this.totalNumOfGuest = this.numOfAdults + this.numOfChildren;
     }
 
     public void setNumOfAdults(int numOfAdults) {
@@ -64,4 +57,5 @@ public class Booking {
         this.numOfChildren = numOfChildren;
         calculateTotalNumberOfGuest();
     }
+
 }

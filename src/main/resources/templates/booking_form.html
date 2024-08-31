@@ -3,87 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abyssinia Hotel</title>
-    <!-- Bootstrap CSS -->
+    <title>New Booking in Abyssinia Resort</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- custom CSS -->
     <link rel="stylesheet" th:href="@{/css/styleHome.css}">
-
 </head>
 <body>
-<!-- Header -->
-<!--<div th:replace="~{fragment/nav_footer :: navbar}"></div>-->
 <div th:replace="~{fragment/nav_footer :: navbar}"></div>
 
-<!-- Booking Section -->
-<section class="container booking-form bookNow">
-    <h2 class="text-center mb-4">Book Your Adventure</h2>
-    <form th:action="@{/bookings/new}" th:object="${booking}" method="post">
-        <div class="form-row">
-            <div class="form-group col-md-5">
-                <label for="guestFullName">Full Name:</label>
-                <input type="text" id="guestFullName" name="guestFullName"
-                       class="form-control" required>
-            </div>
+<section class="container my-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h2 class="text-center mb-0">Book Your Adventure</h2>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/bookings/new}" th:object="${bookingForm}" method="post">
+                        <!-- Guest Information -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="guestFullName">Full Name:</label>
+                                <input type="text" id="guestFullName" th:field="*{guestFullName}" class="form-control" required>
+                                <div th:if="${#fields.hasErrors('guestFullName')}" class="text-danger">
+                                    <p th:errors="*{guestFullName}"></p>
+                                </div>
+                            </div>
 
-            <div class="form-group col-md-5">
-                <label for="guestEmail">Email:</label>
-                <input type="email"  id="guestEmail" name="guestEmail"
-                       class="form-control" required>
-            </div>
+                            <div class="form-group col-md-6">
+                                <label for="guestEmail">Email:</label>
+                                <input type="email" id="guestEmail" th:field="*{guestEmail}" class="form-control" required>
+                                <div th:if="${#fields.hasErrors('guestEmail')}" class="text-danger">
+                                    <p th:errors="*{guestEmail}"></p>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="form-group col-md-5">
-                <label for="checkin">Check-In Date:</label>
-                <input type="date" id="checkin" name="checkin" class="form-control" required>
-            </div>
-            <div class="form-group col-md-5">
-                <label for="checkout">Check-Out Date:</label>
-                <input type="date" id="checkout" name="checkout" class="form-control" required>
-            </div>
+                        <!-- Booking Information -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="checkInDate">Check-In Date:</label>
+                                <input type="date" id="checkInDate" th:field="*{checkInDate}" class="form-control" required />
+                                <div th:if="${#fields.hasErrors('checkInDate')}" class="text-danger">
+                                    <p th:errors="*{checkInDate}"></p>
+                                </div>
+                            </div>
 
-            <div class="form-group col-md-6">
-                <label for="roomType">Room Type:</label>
-                <select id="roomType" name="roomType" class="form-control">
-                    <option value="" disabled selected>Select Room Type</option>
-                    <option value="single">Single</option>
-                    <option value="double">Double</option>
-                    <option value="Ocean View">Ocean View</option>
-                    <option value="Pool Side">Pool Side</option>
-                    <option value="Beach Suite">Beach Suite</option>
-                    <option value="Presidential Suite">Presidential Suite</option>
-                </select>
+                            <div class="form-group col-md-6">
+                                <label for="checkOutDate">Check-Out Date:</label>
+                                <input type="date" id="checkOutDate" th:field="*{checkOutDate}" class="form-control" required />
+                                <div th:if="${#fields.hasErrors('checkOutDate')}" class="text-danger">
+                                    <p th:errors="*{checkOutDate}"></p>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="roomType">Room Type:</label>
+                                <select id="roomType" th:field="*{roomType}" class="form-control" required>
+                                    <option value="" disabled selected>Select a room type</option>
+                                    <option th:each="room : ${rooms}" th:value="${room.roomType}"
+                                            th:text="${room.roomType}">Room Type</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="numOfAdults">Number of Adults:</label>
+                                <input type="number" id="numOfAdults" th:field="*{numOfAdults}" min="1" class="form-control" required />
+                                <div th:if="${#fields.hasErrors('numOfAdults')}" class="text-danger">
+                                    <p th:errors="*{numOfAdults}"></p>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="numOfChildren">Number of Children:</label>
+                                <input type="number" id="numOfChildren" th:field="*{numOfChildren}" min="0" class="form-control" />
+                                <div th:if="${#fields.hasErrors('numOfChildren')}" class="text-danger">
+                                    <p th:errors="*{numOfChildren}"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container d-flex justify-content-center">
+                            <button type="submit" class="btn btn-info col-md-4">Book Now</button>
+                        </div>
+                    </form>
+
+                    <!-- Error and Success Messages -->
+                    <div th:if="${errorMessage}" class="mt-3 alert alert-danger">
+                        <p th:text="${errorMessage}"></p>
+                    </div>
+
+                    <div th:if="${successMessage}" class="mt-3 alert alert-success">
+                        <p th:text="${successMessage}"></p>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-3">
-                <label for="numAdults">Number of Adults:</label>
-                <input type="number" id="numAdults" name="numAdults" class="form-control" min="1" required>
-            </div>
-            <div class="form-group col-md-3">
-                <label for="numChildren">Number of Children:</label>
-                <input type="number" id="numChildren" name="numChildren" class="form-control" min="0" required>
-            </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Book Now</button>
-    </form>
+    </div>
 </section>
 
-<!-- Footer -->
 <div th:replace="~{fragment/nav_footer :: footer}"></div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#bookingForm").on("submit", function(event) {
-            if ($("#numOfAdults").val() <= 0) {
-                alert("Please enter at least one adult.");
-                event.preventDefault();
-            }
-        });
-    });
-</script>
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

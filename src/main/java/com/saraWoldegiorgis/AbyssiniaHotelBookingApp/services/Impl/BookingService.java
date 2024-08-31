@@ -1,12 +1,14 @@
 package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.Impl;
 
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Booking;
+import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Room;
+import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.User;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories.BookingRepository;
+import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories.RoomRepository;
+import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories.UserRepository;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IBookingService;
-import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IRoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,12 +17,14 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class BookingService implements IBookingService {
+
     private final BookingRepository bookingRepository;
-    private final IRoomService roomService;
+    private final UserRepository userRepository;
+    private final RoomRepository roomRepository;
 
     @Override
     public List<Booking> findAllBookings() {
-        return bookingRepository.findAll();
+        return (List<Booking>) bookingRepository.findAll();
     }
 
     @Override
@@ -29,8 +33,8 @@ public class BookingService implements IBookingService {
     }
 
     @Override
-    public void deleteBookingById(Long id) {
-        bookingRepository.deleteById(id);
+    public void deleteBookingById(Long bookingId) {
+        bookingRepository.deleteById(bookingId);
     }
 
     @Override
@@ -38,33 +42,38 @@ public class BookingService implements IBookingService {
         return bookingRepository.findByRoomId(roomId);
     }
 
+    @Override
+    public Optional<Booking> findBookingById(Long bookingId) {
+        return Optional.of(bookingRepository.findById(bookingId).get());
+    }
 
     @Override
     public Booking saveBooking(Booking booking) {
         return bookingRepository.save(booking);
     }
 
-//    @Override
-//    public Booking addNewBooking(LocalDate checkInDate, LocalDate checkOutDate, String roomType, int numOfAdults, int numOfChildren) {
-//        Booking booking= new Booking();
-//        booking.setCheckInDate(checkInDate);
-//        booking.setCheckOutDate(checkOutDate);
-//        booking.setRoomType(roomType);
-//        booking.setNumOfAdults(numOfAdults);
-//        booking.setNumOfChildren(numOfChildren);
-//
-//        return bookingRepository.save(booking);
-//    }
-
     @Override
-    public Optional<Booking> findBookingById(Long id) {
-        return bookingRepository.findById(id);
+    public Booking addNewBooking(String guestFullName, String guestEmail, LocalDate checkInDate, LocalDate checkOutDate, Room room, int numOfAdults, int numOfChildren) {
+
+        if (room == null) {
+            throw new IllegalArgumentException("Room cannot be null.");
+        }
+
+        // Create a new Booking object
+        Booking newBooking = new Booking();
+        newBooking.setGuestFullName(guestFullName);
+        newBooking.setGuestEmail(guestEmail);
+        newBooking.setCheckInDate(checkInDate);
+        newBooking.setCheckOutDate(checkOutDate);
+        newBooking.setRoom(room);
+        newBooking.setNumOfAdults(numOfAdults);
+        newBooking.setNumOfChildren(numOfChildren);
+
+        // Save the new booking to the database
+        bookingRepository.save(newBooking);
+
+        // Return the newly created booking
+        return newBooking;
     }
 
-    @Override
-    public Booking findByBookingConfirmationCode(String bookingConfirmationCode) {
-        return bookingRepository.findByBookingConfirmationCode(bookingConfirmationCode)
-                .orElse(null);
-
-    }
 }

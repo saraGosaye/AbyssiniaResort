@@ -4,7 +4,6 @@ package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.Impl;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Room;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories.RoomRepository;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.services.IRoomService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -58,6 +57,11 @@ public class RoomService implements IRoomService {
     }
 
     @Override
+    public Room findRoomByType(String roomType) {
+        return roomRepository.findByRoomType(roomType);
+    }
+
+    @Override
     public List<String> findAllRoomTypes() {
         return roomRepository.findDistinctRoomTypes();
     }
@@ -96,10 +100,14 @@ public class RoomService implements IRoomService {
     }
 
     @Override
-    public List<Room> findAvailableRooms(LocalDate checkInDate, LocalDate checkOutDate,
-                                      String roomType) {
-        return roomRepository.findAvailableRoomsByDatesAndType(checkInDate, checkOutDate, roomType);
+    public List<Room> findAvailableRooms(LocalDate checkInDate, LocalDate checkOutDate, String roomType) {
+
+        // Call the repository method to find available rooms by dates and type
+        List<Room> availableRooms = roomRepository.findAvailableRoomsByDatesAndType(checkInDate, checkOutDate, roomType);
+        return availableRooms;
+
     }
+
 
     @Override
     public Blob getImageBlobById(Long id) {

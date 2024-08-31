@@ -27,6 +27,13 @@
             You've successfully registered to Abyssinia Resort & Spa! Please login.
         </div>
     </div>
+    <!-- Error message on login failure -->
+    <div th:if="${param.error}">
+        <div class="alert alert-danger mt-4 col-md-5">
+            Login failed! Please check your credentials and try again.
+        </div>
+    </div>
+
     <form method="post" action="#" th:action="@{/login}">
         <h3 class="mt-4">Login</h3>
         <p class="col-md-5">

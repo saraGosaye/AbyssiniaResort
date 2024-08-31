@@ -1,16 +1,15 @@
 package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.RandomStringUtils;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.math.BigDecimal;
 import java.sql.Blob;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +25,7 @@ public class Room {
 
 
     @NotEmpty(message = "Room Type cannot be empty")
-    @Column(name = "room_type", nullable = false)
+    @Column(name = "room_type", nullable = false, unique = true)
     private String roomType;
 
     @NotNull(message = "Room Price cannot be null")
@@ -41,19 +40,9 @@ public class Room {
     @Column(name = "Photo", nullable = false)
     private Blob photo;
 
+    @JsonIgnore
     @OneToMany(mappedBy="room", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval =
             true)
     private List<Booking> bookings;
-
-    public void addBooking(Booking booking){
-        if (bookings == null){
-            bookings = new ArrayList<>();
-        }
-        bookings.add(booking);
-        booking.setRoom(this);
-        isBooked = true;
-        String bookingCode = RandomStringUtils.randomNumeric(10);
-        booking.setBookingConfirmationCode(bookingCode);
-    }
 
 }

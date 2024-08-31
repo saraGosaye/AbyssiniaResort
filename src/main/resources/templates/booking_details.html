@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Bookings</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/styleHome.css}">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{fragment/nav_footer :: navbar}"></div>
+
+<div class="container col-md-6">
+
+    <div th:if="${errorMessage}">
+        <p class="alert alert-danger" th:text="${errorMessage}"></p>
+    </div>
+
+    <div class="ml-5" th:if="${booking}">
+        <h2 class="mt-5">Booking Information</h2>
+        <hr  class="w-50 mx-0 ms-5">
+        <div th:each="booking : ${booking}" class="mb-3">
+        <p>Thank you for choosing Abyssinia Resort and Spa! </p>
+        <ul class="mt-3">
+            <li>Full Name: <span th:text="${booking?.guestFullName ?: 'N/A'}">Guest Name</span></li>
+            <li>Email: <span th:text="${booking?.guestEmail ?: 'N/A'}">guest@example.com</span></li>
+            <li>Check-In Date: <span th:text="${booking?.checkInDate != null ? booking.checkInDate : 'N/A'}">2024-01-01</span></li>
+            <li>Check-Out Date: <span th:text="${booking?.checkOutDate != null ? booking.checkOutDate : 'N/A'}">2024-01-07</span></li>
+            <li>Room Type: <span th:text="${booking?.room?.roomType ?: 'N/A'}">Deluxe</span></li>
+            <li>Number of Adults: <span th:text="${booking?.numOfAdults ?: 'N/A'}">2</span></li>
+            <li>Number of Children: <span th:text="${booking?.numOfChildren ?: 'N/A'}">1</span></li>
+        </ul>
+        <div class="buttons mt-3">
+            <a th:href="@{/bookings/cancel/{id}(id=${booking.bookingId})}"
+               class="btn btn-danger">Cancel Booking</a>
+            <a th:href="@{/bookings/new}" class="btn btn-info ml-3">Make Another Booking</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Footer -->
+<div th:replace="~{fragment/nav_footer :: footer}"></div>
+
+</body>
+</html>

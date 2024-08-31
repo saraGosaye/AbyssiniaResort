@@ -3,6 +3,7 @@ package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.repositories;
 import com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -22,16 +23,14 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
 //    This method retrieves a list of available rooms of a specific type that are not already
 //    booked for the given date range.
 
-    @Query(" SELECT r FROM Room r " +
-            " WHERE r.roomType LIKE %:roomType% " +
-            " AND r.id NOT IN (" +
-            "  SELECT br.room.id FROM Booking br " + //identifies rooms that are already booked during the specified date
-            "  WHERE ((br.checkInDate <= :checkOutDate) AND (br.checkOutDate >= :checkInDate))" +
-            ")") // selects rooms that are not part of the booked rooms, effectively filtering out unavailable rooms.
-
-
-    List<Room> findAvailableRoomsByDatesAndType(LocalDate checkInDate, LocalDate checkOutDate,
-                                                String roomType);
+    @Query("SELECT r FROM Room r WHERE r.roomType = :roomType AND r.isBooked = false " +
+            "AND r.id NOT IN (SELECT b.room.id FROM Booking b WHERE b.checkInDate < :checkOutDate AND b.checkOutDate > :checkInDate)")
+    List<Room> findAvailableRoomsByDatesAndType(@Param("checkInDate") LocalDate checkInDate,
+                                                @Param("checkOutDate") LocalDate checkOutDate,
+                                                @Param("roomType") String roomType);
 
     Optional<Room> findById(Long id);
+
+    Room findByRoomType(String roomType);
+
 }
