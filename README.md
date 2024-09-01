@@ -5,10 +5,12 @@ Welcome to the Hotel Booking App! This application provides a seamless and user-
 
 ## Features
 - User Registration and Login with password hashing
-- Browse and search hotel rooms
 - Book a hotel room
-- View, update, and cancel bookings
-- Admin panel to manage bookings
+- Browse and view room details with price, room photo and room type
+- Retrieve booking details with email search
+- View, update, and cancel reservations
+- Create, View, Update and Delete roles
+- Responsive design on all devices
 
 ## Technologies Used
 - Spring Boot
