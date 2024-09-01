@@ -17,15 +17,15 @@ import java.util.List;
 @Controller
 @RequestMapping("/bookings")
 public class BookingController {
+//    Handles HTTP requests related to bookings. Manages booking creation, cancellation, and
+//    lookup by guest email, and provides views for booking forms and booking details.
 
     private final IBookingService bookingService;
     private final IRoomService roomService;
-    private final IUserService userService;
 
-    public BookingController(IBookingService bookingService, IRoomService roomService, IUserService userService) {
+    public BookingController(IBookingService bookingService, IRoomService roomService) {
         this.bookingService = bookingService;
         this.roomService = roomService;
-        this.userService = userService;
     }
 
     @ModelAttribute("bookingForm")

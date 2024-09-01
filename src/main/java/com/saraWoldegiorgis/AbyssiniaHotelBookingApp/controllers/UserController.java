@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @Slf4j
 public class UserController {
+//    Handles HTTP requests related to user registration and login. Manages user sign-up and login
+//    processes, including form validation and user account creation.
 
     @InitBinder
     public void initBinder(WebDataBinder dataBinder) {

@@ -10,6 +10,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "bookings")
+
+// This entity class maps to the "bookings" table in the database and contains details about a
+// guest's booking.
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -17,6 +17,8 @@ import java.util.Optional;
 @Slf4j
 @Controller
 public class RoleController {
+//    Manages HTTP requests related to roles.
+//    Provides functionality to list, add, edit, and delete roles, and includes validation and error handling.
 
     private final IRoleService roleService;
 

@@ -14,8 +14,10 @@ import java.util.Collection;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Table(name = "role")
-public class Role {
 
+// Maps to the "role" table in the database with a unique role name.
+// Collection of users associated with this role (many-to-many relationship)
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

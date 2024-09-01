@@ -237,3 +237,196 @@ Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'abyssinia_hotel_b
 2024-08-31T00:21:00.919-05:00  INFO 24484 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] c.s.A.controllers.UserController         : Login page displayed
 2024-08-31T00:21:00.930-05:00  INFO 24484 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
 2024-08-31T00:21:00.944-05:00  INFO 24484 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-5] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:51:53.166-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.A.AbyssiniaHotelBookingAppApplication : Starting AbyssiniaHotelBookingAppApplication using Java 22 with PID 29500 (C:\Users\sarin\OneDrive\Desktop\Per Scholas\AbyssiniaHotelBookingApp\AbyssiniaHotelBookingApp\target\classes started by sarin in C:\Users\sarin\OneDrive\Desktop\Per Scholas\AbyssiniaHotelBookingApp)
+2024-09-01T10:51:53.174-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.A.AbyssiniaHotelBookingAppApplication : No active profile set, falling back to 1 default profile: "default"
+2024-09-01T10:51:53.313-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-01T10:51:53.314-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-01T10:51:56.561-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-01T10:51:56.786-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 198 ms. Found 4 JPA repository interfaces.
+2024-09-01T10:51:59.317-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-01T10:51:59.354-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-01T10:51:59.355-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-01T10:51:59.529-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-01T10:51:59.531-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6215 ms
+2024-09-01T10:52:00.571-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-01T10:52:00.787-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-01T10:52:00.920-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-01T10:52:02.645-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-01T10:52:02.874-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-01T10:52:04.414-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f098588
+2024-09-01T10:52:04.420-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-01T10:52:04.576-05:00  WARN 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-01T10:52:04.579-05:00  WARN 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-01T10:52:07.929-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-01T10:52:09.166-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-01T10:52:10.285-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-09-01T10:52:11.999-05:00  WARN 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-01T10:52:12.145-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-09-01T10:52:12.148-05:00  WARN 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-09-01T10:52:13.483-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-09-01T10:52:15.003-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-01T10:52:15.247-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-01T10:52:15.279-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.A.AbyssiniaHotelBookingAppApplication : Started AbyssiniaHotelBookingAppApplication in 23.481 seconds (process running for 33.383)
+2024-09-01T10:52:48.616-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-01T10:52:48.616-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-01T10:52:48.616-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-09-01T10:52:48.924-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-4] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:52:50.002-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:52:50.049-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:52:50.074-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-10] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:53:01.190-05:00  WARN 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.services.Impl.UserService          : Invalid username or password sara@gmail.com
+2024-09-01T10:53:01.693-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:53:01.833-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-3] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:53:01.856-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:53:01.897-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:53:16.382-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:53:16.401-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-5] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:53:16.419-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-3] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:53:55.211-05:00  WARN 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Registration attempt failed due to validation errors.
+2024-09-01T10:53:55.414-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:53:55.432-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:53:55.450-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:54:08.396-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-3] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:54:08.525-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-9] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:54:08.543-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:54:08.562-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:02.420-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-10] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:02.562-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:02.577-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:02.591-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:05.920-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-9] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:05.935-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:05.950-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:34.932-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:35.049-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:35.064-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-9] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:56:35.075-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:57:41.972-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:57:41.989-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:57:42.024-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:58:20.003-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-5] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:58:20.139-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:58:20.152-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T10:58:20.166-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:17:27.572-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-01T11:17:27.583-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-01T11:17:27.605-05:00  INFO 29500 --- [AbyssiniaHotelBookingApp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-01T11:17:37.152-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.A.AbyssiniaHotelBookingAppApplication : Starting AbyssiniaHotelBookingAppApplication using Java 22 with PID 24596 (C:\Users\sarin\OneDrive\Desktop\Per Scholas\AbyssiniaHotelBookingApp\AbyssiniaHotelBookingApp\target\classes started by sarin in C:\Users\sarin\OneDrive\Desktop\Per Scholas\AbyssiniaHotelBookingApp)
+2024-09-01T11:17:37.158-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.A.AbyssiniaHotelBookingAppApplication : No active profile set, falling back to 1 default profile: "default"
+2024-09-01T11:17:37.297-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-01T11:17:37.298-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-01T11:17:40.029-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-01T11:17:40.203-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 156 ms. Found 4 JPA repository interfaces.
+2024-09-01T11:17:42.200-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-01T11:17:42.230-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-01T11:17:42.231-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-01T11:17:42.459-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-01T11:17:42.461-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5160 ms
+2024-09-01T11:17:43.062-05:00  WARN 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [9B26B6B2A15477CE552207BC489A1043]
+2024-09-01T11:17:43.465-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-01T11:17:43.636-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-01T11:17:43.746-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-01T11:17:44.658-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-01T11:17:44.753-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-01T11:17:45.617-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64d5bd56
+2024-09-01T11:17:45.622-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-01T11:17:45.745-05:00  WARN 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-01T11:17:45.750-05:00  WARN 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-01T11:17:49.217-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-01T11:17:49.434-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-01T11:17:50.591-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-09-01T11:17:52.285-05:00  WARN 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-01T11:17:52.420-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-09-01T11:17:52.423-05:00  WARN 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-09-01T11:17:53.899-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-09-01T11:17:55.706-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-01T11:17:55.947-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-01T11:17:55.984-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.A.AbyssiniaHotelBookingAppApplication : Started AbyssiniaHotelBookingAppApplication in 20.009 seconds (process running for 22.121)
+2024-09-01T11:17:57.000-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [RMI TCP Connection(2)-192.168.12.196] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-01T11:17:57.000-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [RMI TCP Connection(2)-192.168.12.196] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-01T11:17:57.000-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [RMI TCP Connection(2)-192.168.12.196] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-09-01T11:18:37.288-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:18:38.332-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:18:38.365-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:18:38.393-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-4] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:20:19.000-05:00  WARN 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.math.BigDecimal'; Character h is neither a decimal digit number, decimal point, nor "e" notation exponential mark.]
+2024-09-01T11:43:18.333-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:43:18.492-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:43:18.504-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:43:18.516-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:43:40.065-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:43:40.079-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-4] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:43:40.092-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:44:21.226-05:00  WARN 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Registration attempt failed due to validation errors.
+2024-09-01T11:44:21.371-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-3] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:44:21.383-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-9] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:44:21.395-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:48:09.353-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-01T11:48:09.397-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-01T11:48:09.472-05:00  INFO 24596 --- [AbyssiniaHotelBookingApp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-01T11:48:14.925-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.A.AbyssiniaHotelBookingAppApplication : Starting AbyssiniaHotelBookingAppApplication using Java 22 with PID 23304 (C:\Users\sarin\OneDrive\Desktop\Per Scholas\AbyssiniaHotelBookingApp\AbyssiniaHotelBookingApp\target\classes started by sarin in C:\Users\sarin\OneDrive\Desktop\Per Scholas\AbyssiniaHotelBookingApp)
+2024-09-01T11:48:14.932-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.A.AbyssiniaHotelBookingAppApplication : No active profile set, falling back to 1 default profile: "default"
+2024-09-01T11:48:15.059-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-01T11:48:15.060-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-01T11:48:17.798-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-01T11:48:17.971-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 155 ms. Found 4 JPA repository interfaces.
+2024-09-01T11:48:19.952-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-01T11:48:19.985-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-01T11:48:19.986-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-01T11:48:20.151-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-01T11:48:20.152-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5091 ms
+2024-09-01T11:48:21.060-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-01T11:48:21.215-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-01T11:48:21.322-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-01T11:48:22.155-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-01T11:48:22.225-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-01T11:48:23.077-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3b71887b
+2024-09-01T11:48:23.081-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-01T11:48:23.230-05:00  WARN 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-01T11:48:23.233-05:00  WARN 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-01T11:48:26.057-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-01T11:48:26.319-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-01T11:48:27.356-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-09-01T11:48:28.864-05:00  WARN 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-01T11:48:28.988-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-09-01T11:48:28.990-05:00  WARN 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-09-01T11:48:30.287-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-09-01T11:48:31.929-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-01T11:48:32.115-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-09-01T11:48:32.156-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [restartedMain] .s.A.AbyssiniaHotelBookingAppApplication : Started AbyssiniaHotelBookingAppApplication in 18.422 seconds (process running for 20.409)
+2024-09-01T11:48:32.624-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [RMI TCP Connection(2)-192.168.12.196] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-01T11:48:32.625-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [RMI TCP Connection(2)-192.168.12.196] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-01T11:48:32.631-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [RMI TCP Connection(2)-192.168.12.196] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-09-01T11:48:50.170-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:48:51.194-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:48:51.223-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-3] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:48:51.244-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-9] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:07.159-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:07.180-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:07.205-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:10.352-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-3] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:10.490-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-5] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:10.511-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-4] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:10.531-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:12.414-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:12.431-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-10] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:12.451-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-5] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:45.614-05:00  WARN 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-4] c.s.A.controllers.UserController         : Registration attempt failed due to validation errors.
+2024-09-01T11:49:45.753-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-9] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:45.770-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:49:45.786-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-1] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:50:39.197-05:00  WARN 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-10] c.s.A.controllers.UserController         : Registration attempt failed due to validation errors.
+2024-09-01T11:50:39.338-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:50:39.353-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:50:39.369-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-9] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:50:53.162-05:00  WARN 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-2] c.s.A.controllers.UserController         : Registration attempt failed due to validation errors.
+2024-09-01T11:50:53.304-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-3] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:50:53.320-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-5] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:50:53.334-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-6] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:51:00.289-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-8] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:51:00.409-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:51:00.428-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-4] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:51:00.440-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-3] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:51:02.457-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-10] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:51:02.472-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-9] c.s.A.controllers.UserController         : Login page displayed
+2024-09-01T11:51:02.485-05:00  INFO 23304 --- [AbyssiniaHotelBookingApp] [http-nio-8080-exec-7] c.s.A.controllers.UserController         : Login page displayed

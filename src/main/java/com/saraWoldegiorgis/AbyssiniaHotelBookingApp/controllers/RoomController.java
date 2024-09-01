@@ -20,6 +20,8 @@ import java.util.Optional;
 
 @Controller
 public class RoomController {
+//    Manages HTTP requests for room-related operations. Includes functionality for adding,
+//    updating, deleting, and viewing rooms, as well as handling room images.
 
     private final IRoomService roomService;
 

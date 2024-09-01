@@ -17,8 +17,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "rooms")
-public class Room {
 
+// Maps to the "rooms" table and includes a one-to-many relationship with bookings.
+public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

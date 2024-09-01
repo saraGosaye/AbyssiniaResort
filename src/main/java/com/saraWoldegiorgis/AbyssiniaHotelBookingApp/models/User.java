@@ -14,6 +14,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
+
+// Maps to the "users" table and has many-to-one relationships with bookings and
+// many-to-many relationships with roles.
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -69,7 +69,7 @@ public class UserService implements IUserService {
         User user = modelMapper.map(userDTO, User.class);
 
         user.setPassword(encoder.encode(user.getPassword()));
-        user.setRoles(Arrays.asList(roleService.findRoleByRoleName("ROLE_USER")));
+        user.setRoles(Arrays.asList(roleService.findRoleByRoleName("GUEST")));
 
         userRepository.save(user);
     }
