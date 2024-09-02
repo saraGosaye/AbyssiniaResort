@@ -3,6 +3,7 @@ package com.saraWoldegiorgis.AbyssiniaHotelBookingApp.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
-
+@Builder
 // Maps to the "users" table and has many-to-one relationships with bookings and
 // many-to-many relationships with roles.
 public class User {

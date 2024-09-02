@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "bookings")
+@Builder
 
 // This entity class maps to the "bookings" table in the database and contains details about a
 // guest's booking.

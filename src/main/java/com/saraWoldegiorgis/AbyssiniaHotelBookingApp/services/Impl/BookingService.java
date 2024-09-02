@@ -76,4 +76,23 @@ public class BookingService implements IBookingService {
         return newBooking;
     }
 
+    @Override
+    public Booking updateBooking(Long id, String guestFullName, String guestEmail, LocalDate checkInDate, LocalDate checkOutDate, Room room, int numOfAdults, int numOfChildren) {
+
+        // Fetch the existing booking
+        Booking booking = bookingRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Booking not found."));
+
+        // Update fields
+        booking.setGuestFullName(guestFullName);
+        booking.setGuestEmail(guestEmail);
+        booking.setCheckInDate(checkInDate);
+        booking.setCheckOutDate(checkOutDate);
+        booking.setRoom(room);
+        booking.setNumOfAdults(numOfAdults);
+        booking.setNumOfChildren(numOfChildren);
+
+        // Save the updated booking
+        return bookingRepository.save(booking);
+    }
+
 }

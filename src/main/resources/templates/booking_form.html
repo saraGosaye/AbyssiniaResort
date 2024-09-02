@@ -19,6 +19,7 @@
                 </div>
                 <div class="card-body">
                     <form th:action="@{/bookings/new}" th:object="${bookingForm}" method="post">
+
                         <!-- Guest Information -->
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -88,6 +89,7 @@
                         <div class="container d-flex justify-content-center">
                             <button type="submit" class="btn btn-info col-md-4">Book Now</button>
                         </div>
+
                     </form>
 
                     <!-- Error and Success Messages -->

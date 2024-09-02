@@ -17,9 +17,10 @@ public interface IBookingService {
 
 
     Booking saveBooking(Booking booking);
-    Optional<Booking> findBookingById(Long bookingId);
+    Optional<Booking> findBookingById(Long id);
     List<Booking> findAllBookings();
     List<Booking> findAllBookingsByRoomId(Long roomId);
     Booking addNewBooking(String guestFullName, String guestEmail, LocalDate checkInDate, LocalDate checkOutDate, Room room, int numOfAdults, int numOfChildren);
 
+    Booking updateBooking(Long id, String guestFullName, String guestEmail, LocalDate checkInDate, LocalDate checkOutDate, Room room, int numOfAdults, int numOfChildren);
 }
